@@ -1,200 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Otomatic Leasing Calculator</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-<style>
-* {
-box-sizing: border-box;
-font-family: 'Roboto', sans-serif;
-}
-body {
-margin: 0;
-background-color: #fff;
-color: #000;
-}
-header, footer {
-background-color: #000;
-color: #fff;
-padding: 1rem 2rem;
-text-align: center;
-}
-header img {
-height: 40px;
-}
-.wrapper {
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: calc(100vh - 160px);
-padding: 2rem;
-}
-.form-container {
-width: 100%;
-max-width: 600px;
-background: #fff;
-border: 2px solid #4ea136;
-border-radius: 12px;
-padding: 2rem;
-box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-h2 {
-margin-bottom: 2rem;
-text-align: center;
-font-size: 1.8rem;
-}
-.field-group {
-margin-bottom: 1.5rem;
-}
-label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: 700;
-}
-select, input {
-width: 100%;
-padding: 0.75rem;
-font-size: 1rem;
-border: 1px solid #ccc;
-border-radius: 6px;
-}
-button {
-background: #4ea136;
-color: #fff;
-border: none;
-border-radius: 6px;
-padding: 0.8rem 1.5rem;
-font-size: 1rem;
-font-weight: bold;
-cursor: pointer;
-width: 100%;
-margin-top: 1rem;
-}
-.result-box {
-margin-top: 1.5rem;
-padding: 1rem;
-background: #f4f4f4;
-border-radius: 6px;
-text-align: center;
-}
-footer a {
-color: #fff;
-margin: 0 1rem;
-text-decoration: none;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otomatic Leasing Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header, footer {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header img {
+      height: 40px;
+    }
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border: 2px solid #4ea136;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    .field-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #4ea136;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    #result {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      display: none;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    footer a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-<header>
-<img src="OTOMATIC.png" alt="Otomatic Logo" />
-</header>
-
-<div class="wrapper">
-<div class="form-container">
-<h2>Leasing Calculator</h2>
-<div class="field-group">
-<label for="product">Select Product</label>
-<select id="product">
-<option value="">-- Select --</option>
-<option value="30000">DPF Platinum (30,000€)</option>
-<option value="22000">DPF Platinum Matic (22,000€)</option>
-<option value="46000">DPF Platinum AI (46,000€)</option>
-<option value="25000">DPF Truck Matic (25,000€)</option>
-</select>
-</div>
-<div class="field-group">
-<label for="duration">Select Duration (Months)</label>
-<select id="duration">
-<option value="">-- Select --</option>
-<option value="36">36</option>
-<option value="48">48</option>
-<option value="60">60</option>
-</select>
-</div>
-<div class="field-group">
-<label for="residual">Select Residual Value (%)</label>
-<select id="residual">
-<option value="">-- Select --</option>
-<option value="0">0%</option>
-<option value="10">10%</option>
-<option value="20">20%</option>
-<option value="30">30%</option>
-</select>
-</div>
-<button onclick="calculateLeasing()">Calculate</button>
-<div id="result" class="result-box"></div>
-<button onclick="goToContactForm()">Continue</button>
-</div>
-</div>
-
-<footer>
-<a href="/imprint.html">Imprint</a>
-<a href="/privacy-policy.html">Privacy Policy</a>
-<a href="/terms.html">Terms & Conditions</a>
-<a href="https://www.linkedin.com/company/otomatic" target="_blank">LinkedIn</a>
-</footer>
-
+  <header>
+    <img src="OTOMATIC.png" alt="Otomatic Logo">
+  </header>
+  <div class="wrapper">
+    <div class="form-container">
+      <h2>Leasing Calculator</h2>
+      <div class="field-group">
+        <label for="product">Select Product</label>
+        <select id="product">
+          <option value="">-- Choose a product --</option>
+          <option value="30000">DPF Platinum (€30,000)</option>
+          <option value="25000">DPF Truck Matic (€25,000)</option>
+          <option value="22000">DPF Platinum Matic (€22,000)</option>
+          <option value="46000">DPF Platinum AI (€46,000)</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="term">Select Lease Term (months)</label>
+        <select id="term">
+          <option value="">-- Choose term --</option>
+          <option value="36">36</option>
+          <option value="48">48</option>
+          <option value="60">60</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="residual">Select Residual Value (%)</label>
+        <select id="residual">
+          <option value="">-- Choose residual --</option>
+          <option value="0">0%</option>
+          <option value="10">10%</option>
+          <option value="20">20%</option>
+          <option value="30">30%</option>
+        </select>
+      </div>
+      <button onclick="calculateRate()">Calculate</button>
+      <div id="result"></div>
+      <p class="error-message" id="calcError">Please select valid values and calculate before continuing.</p>
+      <button id="continueBtn" onclick="proceed()" disabled>Continue</button>
+    </div>
+  </div>
+  <footer>
+    <a href="/imprint.html">Imprint</a>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms & Conditions</a>
+    <a href="https://www.linkedin.com/company/otomatic" target="_blank">LinkedIn</a>
+  </footer>
+ 
 <script>
-function calculateLeasing() {
-const product = document.getElementById('product').value;
-const duration = document.getElementById('duration').value;
-const residual = document.getElementById('residual').value;
-const result = document.getElementById('result');
-
-if (!product || !duration || !residual) {
-result.textContent = "Please fill out all fields.";
-result.style.color = 'red';
-return;
-}
-
-if (product === "46000") {
-const matrix = {
-"36-30": 1074.58,
-"48-0": 1097.30,
-"48-10": 1009.06,
-"48-20": 920.82,
-"48-30": 832.60,
-"60-0": 895.00,
-"60-10": 825.85
-};
-const key = `${duration}-${residual}`;
-if (matrix[key]) {
-result.textContent = `Monthly Leasing Rate: €${matrix[key].toFixed(2)}`;
-result.style.color = 'green';
-} else {
-result.textContent = "This combination is not valid.";
-result.style.color = 'red';
-}
-} else {
-const factorMatrix = {
-"48-0": 0.0241,
-"48-10": 0.0222,
-"48-20": 0.0203,
-"48-30": 0.0184,
-"60-0": 0.0197,
-"60-10": 0.0182
-};
-const key = `${duration}-${residual}`;
-const factor = factorMatrix[key];
-if (factor) {
-const rate = product * factor;
-result.textContent = `Monthly Leasing Rate: €${rate.toFixed(2)}`;
-result.style.color = 'green';
-} else {
-result.textContent = "This combination is not valid.";
-result.style.color = 'red';
-}
-}
-}
-
-function goToContactForm() {
-alert("Continue to contact form..."); // Replace with actual redirect logic
-}
+  const factors = {
+    "30000": {
+      "36": {"0": 2.32, "10": 2.23, "20": 2.15, "30": 2.08},
+      "48": {"0": 2.12, "10": 2.03, "20": 1.95, "30": 1.88},
+      "60": {"0": 1.93, "10": 1.84, "20": 1.76, "30": 1.69}
+    },
+    "25000": {
+      "36": {"0": 2.36, "10": 2.27, "20": 2.19, "30": 2.12},
+      "48": {"0": 2.15, "10": 2.06, "20": 1.98, "30": 1.91},
+      "60": {"0": 1.95, "10": 1.86, "20": 1.78, "30": 1.71}
+    },
+    "22000": {
+      "36": {"0": 2.4, "10": 2.31, "20": 2.23, "30": 2.16},
+      "48": {"0": 2.18, "10": 2.09, "20": 2.01, "30": 1.94},
+      "60": {"0": 1.97, "10": 1.88, "20": 1.8, "30": 1.73}
+    },
+    "46000": {
+      "36": {"0": 2.17, "10": 2.08, "20": 2.0, "30": 1.93},
+      "48": {"0": 1.98, "10": 1.89, "20": 1.81, "30": 1.74},
+      "60": {"0": 1.79, "10": 1.7, "20": 1.62, "30": 1.55}
+    }
+  };
+ 
+  function calculateRate() {
+    const product = document.getElementById('product').value;
+    const term = document.getElementById('term').value;
+    const residual = document.getElementById('residual').value;
+    const result = document.getElementById('result');
+    const error = document.getElementById('calcError');
+    const continueBtn = document.getElementById('continueBtn');
+ 
+    if (!product || !term || !residual || !factors[product] || !factors[product][term] || !factors[product][term][residual]) {
+      result.textContent = '';
+      error.style.display = 'block';
+      continueBtn.disabled = true;
+      return;
+    }
+ 
+    const factor = factors[product][term][residual];
+    const rate = (product * (factor / 100)).toFixed(2);
+    result.textContent = `Monthly Rate: €${rate}`;
+    error.style.display = 'none';
+    continueBtn.disabled = false;
+  }
+ 
+  function proceed() {
+    window.location.href = 'contact.html';
+  }
 </script>
 </body>
 </html>
-
-<a href="contact.hmtl">Continue</a>
-
