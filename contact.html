@@ -108,19 +108,53 @@
   <div class="wrapper">
     <div class="form-container">
       <h2>Contact Form</h2>
-      <form action="https://hooks.zapier.com/hooks/catch/22913204/27y5u10/" method="POST">
-        <div class="row">
-          <div class="field-group">
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" placeholder="e.g. John" required>
-          </div>
-          <div class="field-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" placeholder="e.g. Doe" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="field-group">
+     <form action="https://hooks.zapier.com/hooks/catch/22913204/27y5u10/" method="POST">
+  <div class="row">
+    <div class="field-group">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="firstName" placeholder="e.g. John" required>
+    </div>
+    <div class="field-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" id="lastName" placeholder="e.g. Doe" required>
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="field-group">
+      <label for="country">Country</label>
+      <input type="text" name="country" id="country" placeholder="e.g. Germany" required>
+    </div>
+    <div class="field-group">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="e.g. john@example.com" required>
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="field-group">
+      <label for="phone">Phone</label>
+      <input type="tel" name="phone" id="phone" placeholder="e.g. +49 123 4567890" required>
+    </div>
+    <div class="field-group">
+      <label for="company">Company</label>
+      <input type="text" name="company" id="company" placeholder="e.g. Otomatic GmbH" required>
+    </div>
+  </div>
+ 
+  <div class="field-group">
+    <label for="message">Message (optional)</label>
+    <textarea name="message" id="message" placeholder="Your message here..."></textarea>
+  </div>
+ 
+  <div class="checkbox-group">
+    <input type="checkbox" id="privacy" name="privacy" value="accepted" required>
+    <label for="privacy">I have read the privacy policy and consent to it.</label>
+  </div>
+ 
+  <button type="submit">Send</button>
+</form>
+
             <label for="country">Country</label>
            <input list="countryList" name="country" id="country" placeholder="Select country" required oninput="setCountryCode()">
 <datalist id="countryList">
