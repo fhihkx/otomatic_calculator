@@ -122,157 +122,122 @@
         <div class="row">
           <div class="field-group">
             <label for="country">Country</label>
-            <input list="countryList" name="country" placeholder="Select country" required>
-      "Germany": "+49",
-      "Spain": "+34",
-      "France": "+33",
-      "United Kingdom": "+44",
-      "United States": "+1",
-      "Afghanistan": "+93",
-      "Albania": "+355",
-      "Algeria": "+213",
-      "Andorra": "+376",
-      "Angola": "+244",
-      "Argentina": "+54",
-      "Armenia": "+374",
-      "Australia": "+61",
-      "Austria": "+43",
-      "Azerbaijan": "+994",
-      "Bahamas": "+1-242",
-      "Bahrain": "+973",
-      "Bangladesh": "+880",
-      "Barbados": "+1-246",
-      "Belarus": "+375",
-      "Belgium": "+32",
-      "Belize": "+501",
-      "Benin": "+229",
-      "Bhutan": "+975",
-      "Bolivia": "+591",
-      "Bosnia and Herzegovina": "+387",
-      "Botswana": "+267",
-      "Brazil": "+55",
-      "Brunei": "+673",
-      "Bulgaria": "+359",
-      "Burkina Faso": "+226",
-      "Burundi": "+257",
-      "Cambodia": "+855",
-      "Cameroon": "+237",
-      "Canada": "+1",
-      "Chile": "+56",
-      "China": "+86",
-      "Colombia": "+57",
-      "Congo": "+242",
-      "Costa Rica": "+506",
-      "Croatia": "+385",
-      "Cuba": "+53",
-      "Cyprus": "+357",
-      "Czech Republic": "+420",
-      "Denmark": "+45",
-      "Dominican Republic": "+1-809",
-      "Ecuador": "+593",
-      "Egypt": "+20",
-      "El Salvador": "+503",
-      "Estonia": "+372",
-      "Ethiopia": "+251",
-      "Finland": "+358",
-      "Gabon": "+241",
-      "Gambia": "+220",
-      "Georgia": "+995",
-      "Ghana": "+233",
-      "Greece": "+30",
-      "Greenland": "+299",
-      "Guatemala": "+502",
-      "Honduras": "+504",
-      "Hong Kong": "+852",
-      "Hungary": "+36",
-      "Iceland": "+354",
-      "India": "+91",
-      "Indonesia": "+62",
-      "Iran": "+98",
-      "Iraq": "+964",
-      "Ireland": "+353",
-      "Israel": "+972",
-      "Italy": "+39",
-      "Jamaica": "+1-876",
-      "Japan": "+81",
-      "Jordan": "+962",
-      "Kazakhstan": "+7",
-      "Kenya": "+254",
-      "Kuwait": "+965",
-      "Latvia": "+371",
-      "Lebanon": "+961",
-      "Lesotho": "+266",
-      "Liberia": "+231",
-      "Libya": "+218",
-      "Lithuania": "+370",
-      "Luxembourg": "+352",
-      "Madagascar": "+261",
-      "Malawi": "+265",
-      "Malaysia": "+60",
-      "Maldives": "+960",
-      "Mali": "+223",
-      "Malta": "+356",
-      "Mexico": "+52",
-      "Moldova": "+373",
-      "Monaco": "+377",
-      "Mongolia": "+976",
-      "Montenegro": "+382",
-      "Morocco": "+212",
-      "Mozambique": "+258",
-      "Myanmar": "+95",
-      "Namibia": "+264",
-      "Nepal": "+977",
-      "Netherlands": "+31",
-      "New Zealand": "+64",
-      "Nicaragua": "+505",
-      "Niger": "+227",
-      "Nigeria": "+234",
-      "North Korea": "+850",
-      "North Macedonia": "+389",
-      "Norway": "+47",
-      "Oman": "+968",
-      "Pakistan": "+92",
-      "Panama": "+507",
-      "Paraguay": "+595",
-      "Peru": "+51",
-      "Philippines": "+63",
-      "Poland": "+48",
-      "Portugal": "+351",
-      "Qatar": "+974",
-      "Romania": "+40",
-      "Russia": "+7",
-      "Rwanda": "+250",
-      "Saudi Arabia": "+966",
-      "Senegal": "+221",
-      "Serbia": "+381",
-      "Singapore": "+65",
-      "Slovakia": "+421",
-      "Slovenia": "+386",
-      "South Africa": "+27",
-      "South Korea": "+82",
-      "Spain": "+34",
-      "Sri Lanka": "+94",
-      "Sudan": "+249",
-      "Sweden": "+46",
-      "Switzerland": "+41",
-      "Syria": "+963",
-      "Taiwan": "+886",
-      "Tajikistan": "+992",
-      "Tanzania": "+255",
-      "Thailand": "+66",
-      "Tunisia": "+216",
-      "Turkey": "+90",
-      "Turkmenistan": "+993",
-      "Uganda": "+256",
-      "Ukraine": "+380",
-      "United Arab Emirates": "+971",
-      "Uruguay": "+598",
-      "Uzbekistan": "+998",
-      "Venezuela": "+58",
-      "Vietnam": "+84",
-      "Yemen": "+967",
-      "Zambia": "+260",
-      "Zimbabwe": "+263"
+           <input list="countryList" name="country" id="country" placeholder="Select country" required oninput="setCountryCode()">
+<datalist id="countryList">
+  <option value="Germany">
+  <option value="Spain">
+  <option value="France">
+  <option value="United Kingdom">
+  <option value="United States">
+  <option value="Afghanistan">
+  <option value="Albania">
+  <option value="Algeria">
+  <option value="Andorra">
+  <option value="Angola">
+  <option value="Argentina">
+  <option value="Armenia">
+  <option value="Australia">
+  <option value="Austria">
+  <option value="Azerbaijan">
+  <option value="Bahamas">
+  <option value="Bahrain">
+  <option value="Bangladesh">
+  <option value="Barbados">
+  <option value="Belarus">
+  <option value="Belgium">
+  <option value="Belize">
+  <option value="Benin">
+  <option value="Bhutan">
+  <option value="Bolivia">
+  <option value="Bosnia and Herzegovina">
+  <option value="Botswana">
+  <option value="Brazil">
+  <option value="Brunei">
+  <option value="Bulgaria">
+  <option value="Burkina Faso">
+  <option value="Burundi">
+  <option value="Cambodia">
+  <option value="Cameroon">
+  <option value="Canada">
+  <option value="Chile">
+  <option value="China">
+  <option value="Colombia">
+  <option value="Congo">
+  <option value="Costa Rica">
+  <option value="Croatia">
+  <option value="Cuba">
+  <option value="Cyprus">
+  <option value="Czech Republic">
+  <option value="Denmark">
+  <option value="Dominican Republic">
+  <option value="Ecuador">
+  <option value="Egypt">
+  <option value="El Salvador">
+  <option value="Estonia">
+  <option value="Ethiopia">
+  <option value="Finland">
+  <option value="France">
+  <option value="Gabon">
+  <option value="Gambia">
+  <option value="Georgia">
+  <option value="Ghana">
+  <option value="Greece">
+  <option value="Greenland">
+  <option value="Guatemala">
+  <option value="Hungary">
+  <option value="Iceland">
+  <option value="India">
+  <option value="Indonesia">
+  <option value="Iran">
+  <option value="Iraq">
+  <option value="Ireland">
+  <option value="Israel">
+  <option value="Italy">
+  <option value="Japan">
+  <option value="Jordan">
+  <option value="Kazakhstan">
+  <option value="Kenya">
+  <option value="Kuwait">
+  <option value="Latvia">
+  <option value="Lebanon">
+  <option value="Lithuania">
+  <option value="Luxembourg">
+  <option value="Malaysia">
+  <option value="Mexico">
+  <option value="Morocco">
+  <option value="Nepal">
+  <option value="Netherlands">
+  <option value="New Zealand">
+  <option value="Nigeria">
+  <option value="Norway">
+  <option value="Pakistan">
+  <option value="Peru">
+  <option value="Philippines">
+  <option value="Poland">
+  <option value="Portugal">
+  <option value="Qatar">
+  <option value="Romania">
+  <option value="Russia">
+  <option value="Saudi Arabia">
+  <option value="Serbia">
+  <option value="Singapore">
+  <option value="Slovakia">
+  <option value="Slovenia">
+  <option value="South Africa">
+  <option value="South Korea">
+  <option value="Spain">
+  <option value="Sweden">
+  <option value="Switzerland">
+  <option value="Taiwan">
+  <option value="Thailand">
+  <option value="Turkey">
+  <option value="Ukraine">
+  <option value="United Arab Emirates">
+  <option value="United Kingdom">
+  <option value="United States">
+  <option value="Vietnam">
+  <option value="Zimbabwe">
+</datalist>
           </div>
           <div class="field-group">
             <label for="email">Email</label>
@@ -308,5 +273,129 @@
     <a href="/terms.html">Terms & Conditions</a>
     <a href="https://www.linkedin.com/company/otomatic" target="_blank">LinkedIn</a>
   </footer>
+<script>
+  const countryPrefixes = {
+    "Germany": "+49",
+    "Spain": "+34",
+    "France": "+33",
+    "United Kingdom": "+44",
+    "United States": "+1",
+    "Afghanistan": "+93",
+    "Albania": "+355",
+    "Algeria": "+213",
+    "Andorra": "+376",
+    "Angola": "+244",
+    "Argentina": "+54",
+    "Armenia": "+374",
+    "Australia": "+61",
+    "Austria": "+43",
+    "Azerbaijan": "+994",
+    "Bahamas": "+1-242",
+    "Bahrain": "+973",
+    "Bangladesh": "+880",
+    "Barbados": "+1-246",
+    "Belarus": "+375",
+    "Belgium": "+32",
+    "Belize": "+501",
+    "Benin": "+229",
+    "Bhutan": "+975",
+    "Bolivia": "+591",
+    "Bosnia and Herzegovina": "+387",
+    "Botswana": "+267",
+    "Brazil": "+55",
+    "Brunei": "+673",
+    "Bulgaria": "+359",
+    "Burkina Faso": "+226",
+    "Burundi": "+257",
+    "Cambodia": "+855",
+    "Cameroon": "+237",
+    "Canada": "+1",
+    "Chile": "+56",
+    "China": "+86",
+    "Colombia": "+57",
+    "Congo": "+242",
+    "Costa Rica": "+506",
+    "Croatia": "+385",
+    "Cuba": "+53",
+    "Cyprus": "+357",
+    "Czech Republic": "+420",
+    "Denmark": "+45",
+    "Dominican Republic": "+1-809",
+    "Ecuador": "+593",
+    "Egypt": "+20",
+    "El Salvador": "+503",
+    "Estonia": "+372",
+    "Ethiopia": "+251",
+    "Finland": "+358",
+    "Gabon": "+241",
+    "Gambia": "+220",
+    "Georgia": "+995",
+    "Ghana": "+233",
+    "Greece": "+30",
+    "Greenland": "+299",
+    "Guatemala": "+502",
+    "Hungary": "+36",
+    "Iceland": "+354",
+    "India": "+91",
+    "Indonesia": "+62",
+    "Iran": "+98",
+    "Iraq": "+964",
+    "Ireland": "+353",
+    "Israel": "+972",
+    "Italy": "+39",
+    "Japan": "+81",
+    "Jordan": "+962",
+    "Kazakhstan": "+7",
+    "Kenya": "+254",
+    "Kuwait": "+965",
+    "Latvia": "+371",
+    "Lebanon": "+961",
+    "Lithuania": "+370",
+    "Luxembourg": "+352",
+    "Malaysia": "+60",
+    "Mexico": "+52",
+    "Morocco": "+212",
+    "Nepal": "+977",
+    "Netherlands": "+31",
+    "New Zealand": "+64",
+    "Nigeria": "+234",
+    "Norway": "+47",
+    "Pakistan": "+92",
+    "Peru": "+51",
+    "Philippines": "+63",
+    "Poland": "+48",
+    "Portugal": "+351",
+    "Qatar": "+974",
+    "Romania": "+40",
+    "Russia": "+7",
+    "Saudi Arabia": "+966",
+    "Serbia": "+381",
+    "Singapore": "+65",
+    "Slovakia": "+421",
+    "Slovenia": "+386",
+    "South Africa": "+27",
+    "South Korea": "+82",
+    "Sweden": "+46",
+    "Switzerland": "+41",
+    "Taiwan": "+886",
+    "Thailand": "+66",
+    "Turkey": "+90",
+    "Ukraine": "+380",
+    "United Arab Emirates": "+971",
+    "Vietnam": "+84",
+    "Zimbabwe": "+263"
+  };
+ 
+  function setCountryCode() {
+    const country = document.getElementById('country').value;
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const current = phoneInput.value.trim();
+    const prefix = countryPrefixes[country];
+    if (prefix && !current.startsWith('+')) {
+      phoneInput.value = prefix + ' ';
+    }
+  }
+</script>
+
 </body>
 </html>
