@@ -808,27 +808,45 @@
       monthlyRate: rateParam
     };
     // Send data to Zapier webhook
-    fetch("https://hooks.zapier.com/hooks/catch/22913204/27y5u10/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(response => {
-      if (response.ok) {
-        // Show success confirmation
-        successMessage.style.display = 'block';
-        // Optionally, clear the form
-        sendBtn.disabled = true;
-      } else {
-        // If server returns an error, inform user (simple fallback)
-        alert("There was an error submitting the form. Please try again.");
-      }
-    })
-    .catch(error => {
-      alert("Network error. Please check your connection and try again.");
-    });
+<!-- ─── Kontaktformular ─────────────────────────── -->
+<form id="contactForm"
+      action="https://hooks.zapier.com/hooks/catch/22913204/27y5u10/"
+      method="POST"
+      target="hiddenZap">
+
+  <!-- Sichtbare Felder -->
+  <div class="row">
+    <div class="field-group">
+      <label for="firstName">First Name</label>
+      <input  type="text" name="firstName" id="firstName" placeholder="e.g. John" required>
+    </div>
+    <div class="field-group">
+      <label for="lastName">Last Name</label>
+      <input  type="text" name="lastName" id="lastName" placeholder="e.g. Doe" required>
+    </div>
+  </div>
+
+  <!-- … Country, Email, Phone, Company, Message, GDPR … -->
+
+  <!-- Versteckte Felder -->
+  <input type="hidden" name="product"       id="_product">
+  <input type="hidden" name="leaseTerm"     id="_term">
+  <input type="hidden" name="residualValue" id="_residual">
+  <input type="hidden" name="monthlyRate"   id="_rate">
+
+  <button type="submit" id="sendBtn">Send</button>
+</form>
+
+<!-- Unsichtbares iFrame fängt die Zapier-Antwort ab -->
+<iframe name="hiddenZap" style="display:none;"></iframe>
+
+<script>
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', () => {
+    document.getElementById('_product' ).value = sessionStorage.getItem('calcProduct')      || '';
+    document.getElementById('_term'    ).value = sessionStorage.getItem('calcLeaseTerm')    || '';
+    document.getElementById('_residual').value = sessionStorage.getItem('calcResidual')     || '';
+    document.getElementById('_rate'    ).value = sessionStorage.getItem('calcMonthlyRate')  || '';
   });
 </script>
-
-</body>
-</html>
+<!-- ──────────────────────────────────────────────── -->
