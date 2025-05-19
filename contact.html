@@ -814,21 +814,73 @@
       method="POST"
       target="hiddenZap">
 
-  <!-- Sichtbare Felder -->
+  <!-- 1. Reihe  ──────────────────────────────── -->
   <div class="row">
     <div class="field-group">
       <label for="firstName">First Name</label>
-      <input  type="text" name="firstName" id="firstName" placeholder="e.g. John" required>
+      <input type="text" id="firstName" name="firstName"
+             placeholder="e.g. John" required>
     </div>
     <div class="field-group">
       <label for="lastName">Last Name</label>
-      <input  type="text" name="lastName" id="lastName" placeholder="e.g. Doe" required>
+      <input type="text" id="lastName" name="lastName"
+             placeholder="e.g. Doe" required>
     </div>
   </div>
 
-  <!-- … Country, Email, Phone, Company, Message, GDPR … -->
+  <!-- 2. Reihe  ──────────────────────────────── -->
+  <div class="row">
+    <div class="field-group">
+      <label for="country">Country</label>
+      <input list="countryList" id="country" name="country"
+             placeholder="Select country" oninput="setCountryCode()" required>
+      <datalist id="countryList">
+        <option value="Germany"><option value="Spain"><option value="France">
+        <option value="United Kingdom"><option value="United States">
+        <!--  weitere <option value="Country"> …  -->
+      </datalist>
+    </div>
+    <div class="field-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email"
+             placeholder="e.g. john@example.com" required>
+    </div>
+  </div>
 
-  <!-- Versteckte Felder -->
+  <!-- 3. Reihe  ──────────────────────────────── -->
+  <div class="row">
+    <div class="field-group">
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone"
+             placeholder="e.g. +49 123 4567890" required>
+    </div>
+    <div class="field-group">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company"
+             placeholder="e.g. Otomatic GmbH" required>
+    </div>
+  </div>
+
+  <!-- Nachricht -------------------------------- -->
+  <div class="field-group">
+    <label for="message">Message (optional)</label>
+    <textarea id="message" name="message"
+              placeholder="Your message here…"></textarea>
+  </div>
+
+  <!-- GDPR ------------------------------------- -->
+  <div class="checkbox-group">
+    <input type="checkbox" id="privacy" required>
+    <label for="privacy">I have read the privacy policy and consent to it.</label>
+  </div>
+
+  <!--  Fehlerhinweis  -->
+  <p class="error-message" id="errorMsg"
+     style="display:none;color:red;font-size:0.9rem;margin-bottom:1rem;">
+     Please fill out all required fields.
+  </p>
+
+  <!-- Versteckte Felder für Daten aus Seite 1 -->
   <input type="hidden" name="product"       id="_product">
   <input type="hidden" name="leaseTerm"     id="_term">
   <input type="hidden" name="residualValue" id="_residual">
@@ -837,16 +889,7 @@
   <button type="submit" id="sendBtn">Send</button>
 </form>
 
-<!-- Unsichtbares iFrame fängt die Zapier-Antwort ab -->
+<!-- Unsichtbares iFrame fängt Zapier-Antwort ab -->
 <iframe name="hiddenZap" style="display:none;"></iframe>
 
 <script>
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', () => {
-    document.getElementById('_product' ).value = sessionStorage.getItem('calcProduct')      || '';
-    document.getElementById('_term'    ).value = sessionStorage.getItem('calcLeaseTerm')    || '';
-    document.getElementById('_residual').value = sessionStorage.getItem('calcResidual')     || '';
-    document.getElementById('_rate'    ).value = sessionStorage.getItem('calcMonthlyRate')  || '';
-  });
-</script>
-<!-- ──────────────────────────────────────────────── -->
