@@ -3,141 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leasing Calculator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Otomatic Leasing Calculator</title>
+  <!-- Google Font (Roboto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body{
-      margin:0;
-      font-family:'Roboto',sans-serif;
-      background:#fff;
-      color:#000;
-      display:flex;
-      flex-direction:column;
-      height:100vh; /* fill the viewport */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    header{background:#000;color:#fff;padding:1rem 2rem;text-align:center}
-    header img{height:40px}
-    .wrapper{
-      flex:1 0 auto;              /* occupy remaining height */
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:2rem;
-      min-height:0;              /* allow flexbox to stretch */
+    header {
+      background: #000;
+      padding: 1rem;
+      text-align: center;
     }
-    .form-container{width:100%;max-width:600px;background:#fff;border:2px solid #4ea136;border-radius:12px;padding:2rem;box-shadow:0 0 10px rgba(0,0,0,.1)}
-    h2{text-align:center;font-size:1.8rem;margin-bottom:2rem}
-    label{display:block;margin-bottom:.5rem;font-weight:700}
-    .row{margin-bottom:1.25rem}
-    select,button{width:100%;padding:.75rem;font-size:1rem;border:1px solid #ccc;border-radius:6px}
-    button{background:#4ea136;color:#fff;font-weight:700;border:none;cursor:pointer;margin-top:1rem}
-    button:disabled{background:#aaa;cursor:not-allowed}
-    #result{margin:1rem 0;text-align:center;font-weight:700}
-    footer{background:#000;color:#fff;text-align:center;padding:1rem 2rem}
-    footer a{color:#fff;text-decoration:none;margin:0 1rem;font-weight:500}
+    header h1 {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .container {
+      max-width: 500px;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 2rem;
+      border: 2px solid #4CAF50;
+      border-radius: 8px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 500;
+      margin: 1rem 0 0.5rem;
+    }
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      appearance: none;
+    }
+    select:focus {
+      outline: none;
+      border-color: #4CAF50;
+      box-shadow: 0 0 0 2px rgba(76,175,80,0.2);
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: #4CAF50;
+      border: none;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    button:hover:enabled {
+      background: #45a049;
+    }
+    #rateDisplay {
+      margin: 1.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    #rateDisplay span {
+      /* The rate value will be inserted here */
+    }
+    footer {
+      margin-top: auto;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 0.75rem 0;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 0.9rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <header><img src="OTOMATIC.png" alt="Otomatic Logo"></header>
-  <div class="wrapper">
-    <div class="form-container">
-      <h2>Leasing Calculator</h2>
-      <form id="calcForm">
-        <div class="row">
-          <label for="product">Select Product</label>
-          <select id="product" required>
-            <option value="">Select…</option>
-            <option value="22000">DPF Platinum Matic (€22,000)</option>
-            <option value="25000">DPF Truck Matic (€25,000)</option>
-            <option value="30000">DPF Platinum (€30,000)</option>
-            <option value="46000">DPF Platinum AI (€46,000)</option>
-          </select>
-        </div>
-        <div class="row">
-          <label for="term">Select Lease Term (months)</label>
-          <select id="term" required>
-            <option value="">Select…</option>
-            <option value="36">36</option>
-            <option value="48">48</option>
-            <option value="60">60</option>
-          </select>
-        </div>
-        <div class="row">
-          <label for="residual">Select Residual Value (%)</label>
-          <select id="residual" required>
-            <option value="">Select…</option>
-            <option value="0">0 %</option>
-            <option value="10">10 %</option>
-            <option value="20">20 %</option>
-            <option value="30">30 %</option>
-          </select>
-        </div>
-        <button type="button" onclick="calculate()">Calculate</button>
-        <p id="result"></p>
-        <button id="continueBtn" type="button" onclick="window.location.href='contact.html'" disabled>Continue</button>
-      </form>
-    </div>
+
+  <header>
+    <!-- You can replace this with an <img> tag if you have an Otomatic logo image -->
+    <h1>OTOMATIC</h1>
+  </header>
+
+  <div class="container">
+    <h2>Leasing Calculator</h2>
+    <label for="product">Select Product</label>
+    <select id="product">
+      <!-- Product options with price -->
+      <option value="22000">DPF Platinum Matic (€22,000)</option>
+      <option value="25000" selected>DPF Truck Matic (€25,000)</option>
+      <option value="30000">DPF Platinum (€30,000)</option>
+      <option value="46000">DPF Platinum AI (€46,000)</option>
+    </select>
+
+    <label for="term">Select Lease Term (months)</label>
+    <select id="term">
+      <option value="36">36</option>
+      <option value="48" selected>48</option>
+      <option value="60">60</option>
+    </select>
+
+    <label for="residual">Select Residual Value (%)</label>
+    <select id="residual">
+      <option value="0">0%</option>
+      <option value="10" selected>10%</option>
+      <option value="20">20%</option>
+      <option value="30">30%</option>
+    </select>
+
+    <button id="calculateBtn">Calculate</button>
+
+    <!-- Monthly rate display -->
+    <div id="rateDisplay">Monthly Rate: <span id="monthlyRate">--</span></div>
+
+    <button id="continueBtn">Continue</button>
   </div>
+
   <footer>
-    <a href="https://otomatic.pl/oferta-maszyny-sprzedaz/">Products</a>
-    <a href="https://otomatic.pl/dpf-biznes/">DPF Business</a>
-    <a href="https://otomatic.pl/budowa-dzialanie-dpf/">Technology</a>
-    <a href="https://otomatic.pl/kontakt/">Contact</a>
+    <!-- Footer links -->
+    <a href="https://otomatic.pl/oferta-maszyny-sprzedaz/" target="_blank">Products</a>
+    <a href="https://otomatic.pl/dpf-biznes/" target="_blank">DPF Business</a>
+    <a href="https://otomatic.pl/budowa-dzialanie-dpf/" target="_blank">Technology</a>
+    <a href="https://otomatic.pl/kontakt/" target="_blank">Contact</a>
   </footer>
-<script>
-// Leasing factors for €22k/25k/30k products
-const factors = {
-  '36,30': 2.63,
-  '48,0': 2.41,
-  '48,10': 2.22,
-  '48,20': 2.03,
-  '60,0': 1.97,
-  '60,10': 1.82
-};
-// Pre‑calculated rates for €46k product (key: term,residual)
-const fixedRates = {
-  '36,30': 1074.58,
-  '48,0': 1097.30,
-  '48,10': 1009.06,
-  '48,20':  920.82,
-  '48,30':  832.60,
-  '60,0':  895.00,
-  '60,10':  825.85
-};
 
-function calculate(){
-  const price = parseInt(document.getElementById('product').value);
-  const term  = parseInt(document.getElementById('term').value);
-  const res   = parseInt(document.getElementById('residual').value);
-  const key   = `${term},${res}`;
-  const result = document.getElementById('result');
-  const cont   = document.getElementById('continueBtn');
+  <script>
+    // Leasing factor tables for allowed combinations
+    const factorsSmall = {
+      "30,36": 2.63,
+      "0,48": 2.41,
+      "10,48": 2.22,
+      "20,48": 2.03,
+      "30,48": 1.84,
+      "0,60": 1.97,
+      "10,60": 1.82
+      // (Note: combinations not listed here are considered invalid for small products)
+    };
+    const factorsBig = {
+      "30,36": 2.34,
+      "0,48": 2.39,
+      "10,48": 2.19,
+      "20,48": 2.00,
+      "30,48": 1.81,
+      "0,60": 1.95,
+      "10,60": 1.80
+      // (Note: combinations not listed here are considered invalid for the 46k product)
+    };
 
-  if(!price||!term||isNaN(res)){
-    result.textContent='Please fill all fields.';
-    cont.disabled=true;
-    return;
-  }
+    let lastCalculated = false; // to track if a rate has been calculated
 
-  if(price===46000){
-    if(fixedRates[key]){
-      result.textContent=`Monthly Rate: €${fixedRates[key].toLocaleString('en-GB',{minimumFractionDigits:2})}`;
-      cont.disabled=false;
-    }else{
-      result.textContent='❌ This combination is not valid';
-      cont.disabled=true;
-    }
-  }else{ // dynamic calculation for 22k/25k/30k
-    if(factors[key]){
-      const rate = (price * (factors[key]/100)).toFixed(2);
-      result.textContent=`Monthly Rate: €${parseFloat(rate).toLocaleString('en-GB',{minimumFractionDigits:2})}`;
-      cont.disabled=false;
-    }else{
-      result.textContent='❌ This combination is not valid';
-      cont.disabled=true;
-    }
-  }
-}
-</script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      const productSelect = document.getElementById('product');
+      const termSelect = document.getElementById('term');
+      const residualSelect = document.getElementById('residual');
+      const displaySpan = document.getElementById('monthlyRate');
+
+      const price = parseFloat(productSelect.value);
+      const term = parseInt(termSelect.value);
+      const residual = parseInt(residualSelect.value);
+
+      if (isNaN(price) || isNaN(term) || isNaN(residual)) {
+        displaySpan.textContent = "--";
+        alert("Please select a product, term, and residual value."); 
+        return;
+      }
+
+      // Determine which factor table to use
+      let factorsTable = (price === 46000) ? factorsBig : factorsSmall;
+      const key = residual + "," + term;
+      if (!(key in factorsTable)) {
+        // Combination is not valid
+        displaySpan.textContent = "--";
+        alert("❌ This combination is not available. Please adjust term or residual value.");
+        lastCalculated = false;
+        return;
+      }
+
+      const factorPercent = factorsTable[key];
+      const monthlyRate = price * (factorPercent / 100);
+      // Format to currency (Euro) with two decimals, e.g. "€495.00"
+      const formattedRate = monthlyRate.toLocaleString("en-US", { style: "currency", currency: "EUR" });
+      displaySpan.textContent = formattedRate;
+      lastCalculated = true;
+    });
+
+    document.getElementById('continueBtn').addEventListener('click', function() {
+      // Ensure a calculation has been done
+      if (!lastCalculated) {
+        alert("Please calculate the monthly rate before continuing.");
+        return;
+      }
+      const productSelect = document.getElementById('product');
+      const termSelect = document.getElementById('term');
+      const residualSelect = document.getElementById('residual');
+      const rateText = document.getElementById('monthlyRate').textContent;
+
+      // Gather values to pass to page 2
+      const productText = productSelect.options[productSelect.selectedIndex].text;
+      const termValue = termSelect.value;
+      const residualValue = residualSelect.value;
+      // Use encodeURIComponent for safe URL inclusion
+      const params = new URLSearchParams();
+      params.append('product', productText);
+      params.append('term', termValue);
+      params.append('residual', residualValue);
+      params.append('rate', rateText);
+      // Navigate to contact form page with query parameters
+      window.location.href = "contact.html?" + params.toString();
+    });
+  </script>
 </body>
 </html>
