@@ -3,184 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Otomatic Leasing Calculator</title>
+  <title>Leasing Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-    header, footer {
-      background-color: #000;
-      color: #fff;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    header img {
-      height: 40px;
-    }
-    .wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-    .form-container {
-      width: 100%;
-      max-width: 600px;
-      background: #fff;
-      border: 2px solid #4ea136;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      margin-bottom: 2rem;
-      text-align: center;
-      font-size: 1.8rem;
-    }
-    .field-group {
-      margin-bottom: 1.5rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-    select, button {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      background: #4ea136;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    #result {
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      text-align: center;
-    }
-    .error-message {
-      color: red;
-      font-size: 0.9rem;
-      display: none;
-      margin-top: 1rem;
-      text-align: center;
-    }
-    footer a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
+    body{margin:0;font-family:'Roboto',sans-serif;background:#fff;color:#000;display:flex;flex-direction:column;min-height:100vh}
+    header{background:#000;color:#fff;padding:1rem 2rem;text-align:center}
+    header img{height:40px}
+    .wrapper{flex:1;display:flex;justify-content:center;align-items:center;padding:2rem}
+    .form-container{width:100%;max-width:600px;background:#fff;border:2px solid #4ea136;border-radius:12px;padding:2rem;box-shadow:0 0 10px rgba(0,0,0,.1)}
+    h2{text-align:center;font-size:1.8rem;margin-bottom:2rem}
+    label{display:block;margin-bottom:.5rem;font-weight:700}
+    .row{margin-bottom:1.25rem}
+    select,button{width:100%;padding:.75rem;font-size:1rem;border:1px solid #ccc;border-radius:6px}
+    button{background:#4ea136;color:#fff;font-weight:700;border:none;cursor:pointer;margin-top:1rem}
+    button:disabled{background:#aaa;cursor:not-allowed}
+    #result{margin:1rem 0;text-align:center;font-weight:700}
+    footer{background:#000;color:#fff;text-align:center;padding:1rem 2rem}
+    footer a{color:#fff;text-decoration:none;margin:0 1rem;font-weight:500}
   </style>
 </head>
 <body>
-  <header>
-    <img src="OTOMATIC.png" alt="Otomatic Logo">
-  </header>
+  <header><img src="OTOMATIC.png" alt="Otomatic Logo"></header>
   <div class="wrapper">
     <div class="form-container">
       <h2>Leasing Calculator</h2>
-      <div class="field-group">
-        <label for="product">Select Product</label>
-        <select id="product">
-          <option value="">-- Choose a product --</option>
-          <option value="30000">DPF Platinum (€30,000)</option>
-          <option value="25000">DPF Truck Matic (€25,000)</option>
-          <option value="22000">DPF Platinum Matic (€22,000)</option>
-          <option value="46000">DPF Platinum AI (€46,000)</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <label for="term">Select Lease Term (months)</label>
-        <select id="term">
-          <option value="">-- Choose term --</option>
-          <option value="36">36</option>
-          <option value="48">48</option>
-          <option value="60">60</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <label for="residual">Select Residual Value (%)</label>
-        <select id="residual">
-          <option value="">-- Choose residual --</option>
-          <option value="0">0%</option>
-          <option value="10">10%</option>
-          <option value="20">20%</option>
-          <option value="30">30%</option>
-        </select>
-      </div>
-      <button onclick="calculateRate()">Calculate</button>
-      <div id="result"></div>
-      <p class="error-message" id="calcError">Please select valid values and calculate before continuing.</p>
-      <button id="continueBtn" onclick="proceed()" disabled>Continue</button>
+      <form id="calcForm">
+        <div class="row">
+          <label for="product">Select Product</label>
+          <select id="product" required>
+            <option value="">Select…</option>
+            <option value="22000">DPF Platinum Matic (€22,000)</option>
+            <option value="25000">DPF Truck Matic (€25,000)</option>
+            <option value="30000">DPF Platinum (€30,000)</option>
+            <option value="46000">DPF Platinum AI (€46,000)</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="term">Select Lease Term (months)</label>
+          <select id="term" required>
+            <option value="">Select…</option>
+            <option value="36">36</option>
+            <option value="48">48</option>
+            <option value="60">60</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="residual">Select Residual Value (%)</label>
+          <select id="residual" required>
+            <option value="">Select…</option>
+            <option value="0">0 %</option>
+            <option value="10">10 %</option>
+            <option value="20">20 %</option>
+            <option value="30">30 %</option>
+          </select>
+        </div>
+        <button type="button" onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+        <button id="continueBtn" type="button" onclick="window.location.href='contact.html'" disabled>Continue</button>
+      </form>
     </div>
   </div>
   <footer>
-    <a href="/imprint.html">Imprint</a>
-    <a href="/privacy-policy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms & Conditions</a>
-    <a href="https://www.linkedin.com/company/otomatic" target="_blank">LinkedIn</a>
+    <a href="https://otomatic.pl/oferta-maszyny-sprzedaz/">Products</a>
+    <a href="https://otomatic.pl/dpf-biznes/">DPF Business</a>
+    <a href="https://otomatic.pl/budowa-dzialanie-dpf/">Technology</a>
+    <a href="https://otomatic.pl/kontakt/">Contact</a>
   </footer>
- 
 <script>
-  const factors = {
-    "30000": {
-      "36": {"0": 2.32, "10": 2.23, "20": 2.15, "30": 2.08},
-      "48": {"0": 2.12, "10": 2.03, "20": 1.95, "30": 1.88},
-      "60": {"0": 1.93, "10": 1.84, "20": 1.76, "30": 1.69}
-    },
-    "25000": {
-      "36": {"0": 2.36, "10": 2.27, "20": 2.19, "30": 2.12},
-      "48": {"0": 2.15, "10": 2.06, "20": 1.98, "30": 1.91},
-      "60": {"0": 1.95, "10": 1.86, "20": 1.78, "30": 1.71}
-    },
-    "22000": {
-      "36": {"0": 2.4, "10": 2.31, "20": 2.23, "30": 2.16},
-      "48": {"0": 2.18, "10": 2.09, "20": 2.01, "30": 1.94},
-      "60": {"0": 1.97, "10": 1.88, "20": 1.8, "30": 1.73}
-    },
-    "46000": {
-      "36": {"0": 2.17, "10": 2.08, "20": 2.0, "30": 1.93},
-      "48": {"0": 1.98, "10": 1.89, "20": 1.81, "30": 1.74},
-      "60": {"0": 1.79, "10": 1.7, "20": 1.62, "30": 1.55}
-    }
-  };
- 
-  function calculateRate() {
-    const product = document.getElementById('product').value;
-    const term = document.getElementById('term').value;
-    const residual = document.getElementById('residual').value;
-    const result = document.getElementById('result');
-    const error = document.getElementById('calcError');
-    const continueBtn = document.getElementById('continueBtn');
- 
-    if (!product || !term || !residual || !factors[product] || !factors[product][term] || !factors[product][term][residual]) {
-      result.textContent = '';
-      error.style.display = 'block';
-      continueBtn.disabled = true;
-      return;
-    }
- 
-    const factor = factors[product][term][residual];
-    const rate = (product * (factor / 100)).toFixed(2);
-    result.textContent = `Monthly Rate: €${rate}`;
-    error.style.display = 'none';
-    continueBtn.disabled = false;
+// Leasing factors for €22k/25k/30k products
+const factors = {
+  '36,30': 2.63,
+  '48,0': 2.41,
+  '48,10': 2.22,
+  '48,20': 2.03,
+  '60,0': 1.97,
+  '60,10': 1.82
+};
+// Pre‑calculated rates for €46k product (key: term,residual)
+const fixedRates = {
+  '36,30': 1074.58,
+  '48,0': 1097.30,
+  '48,10': 1009.06,
+  '48,20':  920.82,
+  '48,30':  832.60,
+  '60,0':  895.00,
+  '60,10':  825.85
+};
+
+function calculate(){
+  const price = parseInt(document.getElementById('product').value);
+  const term  = parseInt(document.getElementById('term').value);
+  const res   = parseInt(document.getElementById('residual').value);
+  const key   = `${term},${res}`;
+  const result = document.getElementById('result');
+  const cont   = document.getElementById('continueBtn');
+
+  if(!price||!term||isNaN(res)){
+    result.textContent='Please fill all fields.';
+    cont.disabled=true;
+    return;
   }
- 
-  function proceed() {
-    window.location.href = 'contact.html';
+
+  if(price===46000){
+    if(fixedRates[key]){
+      result.textContent=`Monthly Rate: €${fixedRates[key].toLocaleString('en-GB',{minimumFractionDigits:2})}`;
+      cont.disabled=false;
+    }else{
+      result.textContent='❌ This combination is not valid';
+      cont.disabled=true;
+    }
+  }else{ // dynamic calculation for 22k/25k/30k
+    if(factors[key]){
+      const rate = (price * (factors[key]/100)).toFixed(2);
+      result.textContent=`Monthly Rate: €${parseFloat(rate).toLocaleString('en-GB',{minimumFractionDigits:2})}`;
+      cont.disabled=false;
+    }else{
+      result.textContent='❌ This combination is not valid';
+      cont.disabled=true;
+    }
   }
+}
 </script>
 </body>
 </html>
