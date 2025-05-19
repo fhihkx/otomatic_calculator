@@ -6,10 +6,25 @@
   <title>Leasing Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;font-family:'Roboto',sans-serif;background:#fff;color:#000;display:flex;flex-direction:column;min-height:100vh}
+    body{
+      margin:0;
+      font-family:'Roboto',sans-serif;
+      background:#fff;
+      color:#000;
+      display:flex;
+      flex-direction:column;
+      height:100vh; /* fill the viewport */
+    }
     header{background:#000;color:#fff;padding:1rem 2rem;text-align:center}
     header img{height:40px}
-    .wrapper{flex:1;display:flex;justify-content:center;align-items:center;padding:2rem}
+    .wrapper{
+      flex:1 0 auto;              /* occupy remaining height */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:2rem;
+      min-height:0;              /* allow flexbox to stretch */
+    }
     .form-container{width:100%;max-width:600px;background:#fff;border:2px solid #4ea136;border-radius:12px;padding:2rem;box-shadow:0 0 10px rgba(0,0,0,.1)}
     h2{text-align:center;font-size:1.8rem;margin-bottom:2rem}
     label{display:block;margin-bottom:.5rem;font-weight:700}
