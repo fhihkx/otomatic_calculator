@@ -1,130 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Form – Step 2</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-body {
-margin: 0;
-font-family: 'Roboto', sans-serif;
-background-color: #fff;
-color: #000;
-}
-header, footer {
-background-color: #000;
-color: #fff;
-padding: 1rem 2rem;
-text-align: center;
-}
-header img {
-height: 40px;
-}
-.wrapper {
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 2rem;
-}
-.form-container {
-width: 100%;
-max-width: 600px;
-background: #fff;
-border: 2px solid #4ea136;
-border-radius: 12px;
-padding: 2rem;
-box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-h2 {
-margin-bottom: 2rem;
-text-align: center;
-font-size: 1.8rem;
-}
-.row {
-display: flex;
-gap: 1rem;
-flex-wrap: wrap;
-}
-.field-group {
-margin-bottom: 2rem;
-flex: 1;
-}
-label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: 700;
-}
-input, select, textarea, button {
-width: 100%;
-padding: 0.9rem;
-font-size: 1rem;
-border: 1px solid #ccc;
-border-radius: 6px;
-}
-select {
-appearance: none;
-background-color: #fff;
-background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 4 5"><path fill="%234ea136" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
-background-repeat: no-repeat;
-background-position: right 0.75rem center;
-background-size: 0.65em auto;
-}
-textarea {
-resize: vertical;
-height: 100px;
-}
-.checkbox-group {
-margin: 1.5rem 0;
-}
-button {
-background: #4ea136;
-color: #fff;
-border: none;
-border-radius: 6px;
-padding: 0.9rem 1.5rem;
-font-size: 1rem;
-font-weight: bold;
-cursor: pointer;
-width: 100%;
-}
-.error-message {
-color: red;
-font-size: 0.9rem;
-display: none;
-margin-bottom: 1rem;
-}
-footer a {
-color: #fff;
-margin: 0 1rem;
-text-decoration: none;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otomatic Finance – Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header, footer {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header img {
+      height: 40px;
+    }
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border: 2px solid #4ea136;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    .row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .field-group {
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    .checkbox-group {
+      margin: 1.5rem 0;
+    }
+    button {
+      background: #4ea136;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      display: none;
+      margin-bottom: 1rem;
+    }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-<header>
-<img src="OTOMATIC.png" alt="Otomatic Logo">
-</header>
-<div class="wrapper">
-<div class="form-container">
-<h2>Contact Form</h2>
-<form action="https://hooks.zapier.com/hooks/catch/22913204/27y5u10/" method="POST">
-<div class="row">
-<div class="field-group">
-<label for="firstName">First Name</label>
-<input type="text" name="firstName" id="firstName" placeholder="e.g. John" required>
-</div>
-<div class="field-group">
-<label for="lastName">Last Name</label>
-<input type="text" name="lastName" id="lastName" placeholder="e.g. Doe" required>
-</div>
-</div>
+  <header>
+    <img src="OTOMATIC.png" alt="Otomatic Logo">
+  </header>
 
-<div class="row">
-<div class="field-group">
-<label for="country">Country</label>
-<input list="countryList" name="country" id="country" placeholder="Select country" required oninput="setCountryCode()">
-<datalist id="countryList">
+  <div class="wrapper">
+    <div class="form-container">
+      <h2>Contact Form</h2>
+      <form action="https://hooks.zapier.com/hooks/catch/22913204/27y5u10/" method="POST">
+        <div class="row">
+          <div class="field-group">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" placeholder="e.g. John" required />
+          </div>
+          <div class="field-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" placeholder="e.g. Doe" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field-group">
+            <label for="country">Country</label>
+            <input list="countryList" name="country" id="country" placeholder="Select country" required oninput="setCountryCode()" />
+            <datalist id="countryList">
 <option value="Germany">
 <option value="Spain">
 <option value="France">
@@ -238,163 +237,49 @@ text-decoration: none;
 <option value="Vietnam">
 <option value="Zimbabwe">
 </datalist>
-</div>
-<div class="field-group">
-<label for="email">Email</label>
-<input type="email" name="email" id="email" placeholder="e.g. john@example.com" required>
-</div>
-</div>
+          </div>
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="e.g. john@example.com" required />
+          </div>
+        </div>
 
-<div class="row">
-<div class="field-group">
-<label for="phone">Phone</label>
-<input type="tel" name="phone" id="phone" placeholder="e.g. +49 123 4567890" required>
-</div>
-<div class="field-group">
-<label for="company">Company</label>
-<input type="text" name="company" id="company" placeholder="e.g. Otomatic GmbH" required>
-</div>
-</div>
+        <div class="row">
+          <div class="field-group">
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" placeholder="e.g. +49 123 4567890" required />
+          </div>
+          <div class="field-group">
+            <label for="company">Company</label>
+            <input type="text" name="company" id="company" placeholder="e.g. Otomatic GmbH" required />
+          </div>
+        </div>
 
-<div class="field-group">
-<label for="message">Message (optional)</label>
-<textarea name="message" id="message" placeholder="Your message here..."></textarea>
-</div>
+        <div class="field-group">
+          <label for="message">Message (optional)</label>
+          <textarea name="message" id="message" placeholder="Your message here..."></textarea>
+        </div>
 
-<div class="checkbox-group">
-<input type="checkbox" id="privacy" name="privacy" value="accepted" required>
-<label for="privacy">I have read the privacy policy and consent to it.</label>
-</div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="privacy" name="privacy" value="accepted" required />
+          <label for="privacy">I have read the privacy policy and consent to it.</label>
+        </div>
 
-<p class="error-message">Please fill out all required fields.</p>
-<button type="submit">Send</button>
+        <p class="error-message">Please fill out all required fields.</p>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
 
-<datalist id="countryList">
-<datalist id="countryList">
-<option value="Germany">
-<option value="Spain">
-<option value="France">
-<option value="United Kingdom">
-<option value="United States">
-<option value="Afghanistan">
-<option value="Albania">
-<option value="Algeria">
-<option value="Andorra">
-<option value="Angola">
-<option value="Argentina">
-<option value="Armenia">
-<option value="Australia">
-<option value="Austria">
-<option value="Azerbaijan">
-<option value="Bahamas">
-<option value="Bahrain">
-<option value="Bangladesh">
-<option value="Barbados">
-<option value="Belarus">
-<option value="Belgium">
-<option value="Belize">
-<option value="Benin">
-<option value="Bhutan">
-<option value="Bolivia">
-<option value="Bosnia and Herzegovina">
-<option value="Botswana">
-<option value="Brazil">
-<option value="Brunei">
-<option value="Bulgaria">
-<option value="Burkina Faso">
-<option value="Burundi">
-<option value="Cambodia">
-<option value="Cameroon">
-<option value="Canada">
-<option value="Chile">
-<option value="China">
-<option value="Colombia">
-<option value="Costa Rica">
-<option value="Croatia">
-<option value="Cuba">
-<option value="Cyprus">
-<option value="Czech Republic">
-<option value="Denmark">
-<option value="Dominican Republic">
-<option value="Ecuador">
-<option value="Egypt">
-<option value="El Salvador">
-<option value="Estonia">
-<option value="Ethiopia">
-<option value="Finland">
-<option value="Gabon">
-<option value="Gambia">
-<option value="Georgia">
-<option value="Ghana">
-<option value="Greece">
-<option value="Greenland">
-<option value="Guatemala">
-<option value="Honduras">
-<option value="Hong Kong">
-<option value="Hungary">
-<option value="Iceland">
-<option value="India">
-<option value="Indonesia">
-<option value="Iran">
-<option value="Iraq">
-<option value="Ireland">
-<option value="Israel">
-<option value="Italy">
-<option value="Jamaica">
-<option value="Japan">
-<option value="Jordan">
-<option value="Kazakhstan">
-<option value="Kenya">
-<option value="Kuwait">
-<option value="Latvia">
-<option value="Lebanon">
-<option value="Lithuania">
-<option value="Luxembourg">
-<option value="Malaysia">
-<option value="Mexico">
-<option value="Morocco">
-<option value="Nepal">
-<option value="Netherlands">
-<option value="New Zealand">
-<option value="Nigeria">
-<option value="Norway">
-<option value="Pakistan">
-<option value="Peru">
-<option value="Philippines">
-<option value="Poland">
-<option value="Portugal">
-<option value="Qatar">
-<option value="Romania">
-<option value="Russia">
-<option value="Saudi Arabia">
-<option value="Serbia">
-<option value="Singapore">
-<option value="Slovakia">
-<option value="Slovenia">
-<option value="South Africa">
-<option value="South Korea">
-<option value="Spain">
-<option value="Sweden">
-<option value="Switzerland">
-<option value="Taiwan">
-<option value="Thailand">
-<option value="Turkey">
-<option value="Ukraine">
-<option value="United Arab Emirates">
-<option value="Vietnam">
-<option value="Zimbabwe">
-</datalist>
-</datalist>
-</form>
-</div>
-</div>
-<footer>
-<a href="/imprint.html">Imprint</a>
-<a href="/privacy-policy.html">Privacy Policy</a>
-<a href="/terms.html">Terms & Conditions</a>
-<a href="https://www.linkedin.com/company/otomatic" target="_blank">LinkedIn</a>
-</footer>
-<script>
+  <footer>
+    <a href="/imprint.html">Imprint</a>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms & Conditions</a>
+    <a href="https://www.linkedin.com/company/otomatic" target="_blank">LinkedIn</a>
+  </footer>
+
+  <script>
+    const countryPrefixes = {
 const countryPrefixes = {
       "Germany": "+49",
       "Spain": "+34",
@@ -547,15 +432,16 @@ const countryPrefixes = {
       "Zambia": "+260",
       "Zimbabwe": "+263"
 };
-function setCountryCode() {
-const country = document.getElementById('country').value;
-const phoneInput = document.getElementById('phone');
-const current = phoneInput.value.trim();
-const prefix = countryPrefixes[country];
-if (prefix && !current.startsWith('+')) {
-phoneInput.value = prefix + ' ';
-}
-}
-</script>
+
+    function setCountryCode() {
+      const country = document.getElementById('country').value;
+      const phoneInput = document.getElementById('phone');
+      const current = phoneInput.value.trim();
+      const prefix = countryPrefixes[country];
+      if (prefix && !current.startsWith('+')) {
+        phoneInput.value = prefix + ' ';
+      }
+    }
+  </script>
 </body>
 </html>
